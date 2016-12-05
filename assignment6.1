@@ -1,0 +1,37 @@
+# acad-assignment6.1
+
+
+
+package assignment6;
+
+public class TimeoutThread {
+
+	public static void main(String args[]) throws InterruptedException {
+
+		Thread thread = new Thread(new Runnable() {
+			@Override
+			public void run() {
+				method();
+			}
+		});
+		thread.start();
+
+	}
+
+	static void method() {
+		long endTime = System.currentTimeMillis() + 10000;
+		while (true) {
+
+			System.out.println("3");
+			if (System.currentTimeMillis() > endTime) {
+
+				System.out.println("Timeout");
+				return;
+			}
+		}
+	}
+}
+
+
+output
+print 3 until 10s gets over after that it will print Timeout
